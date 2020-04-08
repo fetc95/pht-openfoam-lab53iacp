@@ -1,2 +1,2 @@
-# cavityInternalHeated
-Lid-driven cavity flow with internal heat source
+# icoTempFoamCases
+Cases for icoTempFoam solver
