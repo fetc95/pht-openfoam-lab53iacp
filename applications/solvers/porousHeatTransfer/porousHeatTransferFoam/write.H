@@ -1,0 +1,1 @@
+kappaSolid = thermoS.kappa();
