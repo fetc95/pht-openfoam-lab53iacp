@@ -25,21 +25,21 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    nigmatulinFoam
+    porousHeatTransferFoam
 
 Group
-    grpCompressibleSolvers
+    grpPorousHeatTransferSolvers
 
 Description
-    Transient solver for flow of compressible fluids for HVAC and
-    similar applications, with optional mesh motion and mesh topology changes.
+    Transient solver for compressible and incompressible flow in porous media.
+    No phase changes and chamical reactions.
 
-    Uses the flexible PIMPLE (PISO-SIMPLE) solution for time-resolved and
-    pseudo-transient simulations.
+    Uses the flexible PIMPLE (PISO-SIMPLE) solution for time-resolved simulations.
 
 Note
-   The motion frequency of this solver can be influenced by the presence
-   of "updateControl" and "updateInterval" in the dynamicMeshDict.
+   By S. S. Fetsov.
+   Laboratory of Fluid Mechanics, Instutue of Automation and Controll Process FEB RAS,
+   Vladivostok, Russia
 
 \*---------------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     argList::addNote
     (
         "Transient solver for compressible flow in porous media.\n"
-        "Optional mesh motion and mesh topology changes."
+        "No phase changes and chamical reactions."
     );
 
     #include "postProcess.H"
