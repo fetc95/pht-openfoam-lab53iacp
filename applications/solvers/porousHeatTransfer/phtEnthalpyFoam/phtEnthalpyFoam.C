@@ -25,7 +25,7 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    porousHeatTransferFoam
+    phtEnthalpyFoam
 
 Group
     grpPorousHeatTransferSolvers
@@ -33,6 +33,9 @@ Group
 Description
     Transient solver for compressible and incompressible flow in porous media.
     No phase changes and chamical reactions.
+    Solid phase energy equation is constructed and solved for enthalpy/internal energy.
+    
+    Optional mesh motion.
 
     Uses the flexible PIMPLE (PISO-SIMPLE) solution for time-resolved simulations.
 
@@ -62,7 +65,7 @@ int main(int argc, char *argv[])
 {
     argList::addNote
     (
-        "Transient solver for compressible flow in porous media.\n"
+        "Transient solver for flow in porous media.\n"
         "No phase changes and chamical reactions."
     );
 

@@ -3,3 +3,5 @@
 The solvers are developed in the Laboratory of Fluid Mechanics of Institute of Automation and Controll Processes FEB RAS (www.iacp.dvo.ru) and Far Eastern Federal University (www.dvfu.ru).
 
 The solvers were tested for OpenFOAM from OpenCFD (www.openfoam.com) versions v1906, v1912, v2006, v2012.
+
+phtEnthalpyFoam - fluid flow in porous media without phase changes and chemical reactions.
