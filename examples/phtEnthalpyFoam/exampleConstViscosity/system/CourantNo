@@ -1,0 +1,28 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Version:  v1912
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Calculates the Courant Number field from the flux field.
+
+\*---------------------------------------------------------------------------*/
+
+type            CourantNo;
+//libs            ("libfieldFunctionObjects.so");
+libs            (fieldFunctionObjects);
+
+//field           phi;
+//rho             rho;
+
+region          region0;
+enabled         true;
+log             true;
+
+
+executeControl  writeTime;
+writeControl    writeTime;
+
+// ************************************************************************* //
