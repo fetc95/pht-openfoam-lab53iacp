@@ -2,11 +2,16 @@
 
 Info<< "Reading fluid thermophysical properties\n" << endl;
 
+word fluidPhaseName = "fluid";
+word solidPhaseName = "solid";
+
 autoPtr<fluidThermo> pThermo
 (
-    fluidThermo::New(mesh,"fluid")
+    fluidThermo::New(mesh, fluidPhaseName)//,"fluid"
 );
 fluidThermo& thermo = pThermo();
+//Info<< thermo.phasePropertyName("test") << "\n" << endl;
+//Info<< thermo.he().name() << "\n" << endl;
 thermo.validate(args.executable(), "h", "e");
 
 volScalarField& p = thermo.p();
@@ -28,7 +33,7 @@ Info<< "Reading solid thermophysical properties\n" << endl;
 
 autoPtr<solidThermo> sThermo
 (
-    solidThermo::New(mesh,"solid")
+    solidThermo::New(mesh, solidPhaseName)
 );
 solidThermo& thermoS = sThermo();
 thermoS.validate(args.executable(), "h", "e");
