@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions    # Tutorial run functions
+
+runApplication blockMesh
+
+restore0Dir
+
+runApplication topoSet
+runApplication $(getApplication) -noFunctionObjects
+#runApplication postProcess
+#$(getApplication) -postProcess > log.postProcess
+#runApplication postProcess -funcs '(singleGraph probes)'
+paraFoam -touch -vtk
+#------------------------------------------------------------------------------
