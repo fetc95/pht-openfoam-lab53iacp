@@ -15,7 +15,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     porousHeatTransferFoam;
+application     phtEnthalpyFoam;
 
 startFrom       startTime;
 
