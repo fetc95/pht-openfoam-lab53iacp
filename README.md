@@ -9,4 +9,4 @@ In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers 
 **phtEnthalpyFoam** - fluid flow in porous media without phase changes and chemical reactions.
 
 # Description
-The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2021 and tested for versions v1906, v1912, v2006, v2012.
+The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2012 and tested for versions v1906, v1912, v2006, v2012.
