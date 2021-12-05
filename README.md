@@ -19,4 +19,4 @@ For solver **phtEnthalpyFoam**, cite work [1].
 
 # References
 
-1. S. S. Fetsov, A. S. Kim. On a novel finite-volume solver for OpenFOAM for simulating Hydrodynamic and thermal processes in porous media // XVII All-Russian Seminar with International Participation "Dynamics of Multiphase Media". Abstracts. Novosibirsk: ITAM SB RAS. 2021. P. 55. (in Russian)
+1. S. S. Fetsov, A. S. Kim. On a novel finite-volume solver for OpenFOAM for simulating hydrodynamic and thermal processes in porous media // XVII All-Russian Seminar with International Participation "Dynamics of Multiphase Media". Abstracts. Novosibirsk: ITAM SB RAS. 2021. P. 55. (in Russian)
