@@ -6,7 +6,7 @@ OpenFOAM solvers for simulating heat transfer processes in porous media (porous 
 
 In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers and libraries to simulate the transient fluid flow and heat transfer in porous media. The solvers are developed in the Laboratory of Fluid Mechanics of [Institute of Automation and Control Processes FEB RAS](www.iacp.dvo.ru) and [Far Eastern Federal University](www.dvfu.ru).
 
-**phtEnthalpyFoam** &mdash; fluid flow in porous media without phase changes and chemical reactions.
+**phtEnthalpyFoam** &mdash; fluid flow in porous media without phase changes and chemical reactions. This solver allows one to simulate flows through the "inert" porous materials like rocks, metallic balls, etc. as in sensible heat thermal energy storage or flow through the self-heating porous media.
 
 # Description
 
