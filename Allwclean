@@ -1,9 +1,9 @@
 #!/bin/sh
 cd ${0%/*} || exit 1                        # Run from this directory
 file=$WM_PROJECT_PHT53_DIR/src/thermophysicalModels
-wclean $file/specieFetc95
-wclean $file/solidSpecieFetc95
-wclean $file/solidFetc95Thermo
+wclean $file/speciePHT53
+wclean $file/solidSpeciePHT53
+wclean $file/solidPHT53Thermo
 #
 file=$FOAM_PHT53_SOLVERS/porousHeatTransfer
 wclean $file/porousHeatTransferFoam
