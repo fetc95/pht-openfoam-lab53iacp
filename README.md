@@ -15,12 +15,10 @@ In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers 
 The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2012 and tested for versions v1906, v1912, v2006, v2012. Please do the following steps to compile:
 
 1. Download ZIP this project from Github and move it to your $HOME/OpenFOAM Ubuntu directory. 
-
 2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-master" and run "mv pht-openfoam-lab53iacp-master OpenFOAM-PHT53IACP" in the prompt.
-
 3. Run "echo 'source $HOME/OpenFOAM/OpenFOAM-PHT53IACP/etc/bashrc' >> ~/.bashrc" in the prompt.
-
-4. Run ./Allwmake script.
+4. Run ". $HOME/.bashrc" in the prompt.
+5. Run ./Allwmake script.
 
 # Usage
 The project **PHT OpenFOAM Lab53 IACP FEB RAS** is released under [Creative Commons Attribution-NonCommercial 4.0 International Public License](https://creativecommons.org/licenses/by-nc/4.0/legalcode) (see file LICENSE in the main directory or www.creativecommons.org/licenses/by-nc/4.0/legalcode). The project **PHT OpenFOAM Lab53 IACP FEB RAS** is released in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Please feel free to extend, modify and use our solvers and libraries according to your requirement, but only for non-commerical usage. When using this project, please cite the project as follows:
