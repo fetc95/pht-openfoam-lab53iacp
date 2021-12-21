@@ -1,0 +1,34 @@
+#---------------------------------*- sh -*-------------------------------------
+export PHT53_PROJECT="OpenFOAM-PHT53IACP"
+export WM_PROJECT_PHT53_DIR=$HOME/$WM_PROJECT/$PHT53_PROJECT
+export FOAM_PHT53_SOLVERS=$WM_PROJECT_PHT53_DIR/applications/solvers
+export FOAM_PHT53_ETC=$WM_PROJECT_PHT53_DIR/etc
+export FOAM_PHT53_SRC=$WM_PROJECT_PHT53_DIR/src
+export FOAM_PHT53_EXAMPLES=$WM_PROJECT_PHT53_DIR/examples
+#
+modifyPatchTypes()
+{
+    file='constant/polyMesh/boundary'
+    while [ -n "$1" ]
+        do
+        case "$1" in
+            -empty) param=$2
+            patchLine=$(sed -n '/'$param'/=' $file)
+            sed -i $(($patchLine+2))'s/patch/empty/' $file
+            shift;;
+            -symmetryPlane) param=$2
+            patchLine=$(sed -n '/'$param'/=' $file)
+            sed -i $(($patchLine+2))'s/patch/symmetryPlane/' $file
+            shift;;
+            -wall) param=$2
+            patchLine=$(sed -n '/'$param'/=' $file)
+            sed -i $(($patchLine+2))'s/patch/wall/' $file
+            shift;;
+            -wedge) param=$2
+            patchLine=$(sed -n '/'$param'/=' $file)
+            sed -i $(($patchLine+2))'s/patch/wedge/' $file
+            shift;;
+        esac
+    shift
+    done
+}
