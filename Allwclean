@@ -7,4 +7,4 @@ wclean $file/solidPHT53Thermo
 #
 file=$FOAM_PHT53_SOLVERS/porousHeatTransfer
 wclean $file/porousHeatTransferFoam
-wclean $file/nigmatulinGasificationFoam
+wclean $file/phtEnthalpyFoam
