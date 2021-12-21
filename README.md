@@ -8,7 +8,7 @@ In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers 
 
 **phtEnthalpyFoam** &mdash; fluid flow in porous media without phase changes and chemical reactions. This solver allows one to simulate flows through the "inert" porous materials like rocks, metallic balls, etc. as in sensible heat thermal energy storage or flow through the self-heating porous media.
 
-**porousHeatTransferFoam** &mdash; fluid flow in porous media. Optional modeling of phase transitions in the condenced phase like granular PCM. This solver allow to model flows in packed bed thermal energy storages with phase changes.
+**porousHeatTransferFoam** &mdash; fluid flow in porous media. Optional modeling of phase transitions in the condenced phase like granular PCM. This solver allows one to model flows in packed bed thermal energy storages with phase changes.
 
 # Description
 
