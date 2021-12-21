@@ -1,0 +1,16 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+#compiling libraries
+file=$WM_PROJECT_USER_DIR/src/thermophysicalModels
+#wclean $file/specieFetc95
+#wclean $file/solidSpecieFetc95
+#wclean $file/solidFetc95Thermo
+wmake $file/specieFetc95
+wmake $file/solidSpecieFetc95
+wmake $file/solidFetc95Thermo
+#compiling solvers
+file=$FOAM_PHT53_SOLVERS/porousHeatTransfer
+#wclean $file/porousHeatTransferFoam
+#wclean $file/nigmatulinGasificationFoam
+wmake $file/phtEnthalpyFoam
+wmake $file/porousHeatTransferFoam
