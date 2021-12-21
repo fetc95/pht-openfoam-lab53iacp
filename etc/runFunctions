@@ -1,0 +1,27 @@
+#---------------------------------*- sh -*-------------------------------------
+modifyPatchTypes()
+{
+    file='constant/polyMesh/boundary'
+    while [ -n "$1" ]
+        do
+        case "$1" in
+            -empty) param=$2
+            patchLine=$(sed -n '/'$param'/=' $file)
+            sed -i $(($patchLine+2))'s/patch/empty/' $file
+            shift;;
+            -symmetryPlane) param=$2
+            patchLine=$(sed -n '/'$param'/=' $file)
+            sed -i $(($patchLine+2))'s/patch/symmetryPlane/' $file
+            shift;;
+            -wall) param=$2
+            patchLine=$(sed -n '/'$param'/=' $file)
+            sed -i $(($patchLine+2))'s/patch/wall/' $file
+            shift;;
+            -wedge) param=$2
+            patchLine=$(sed -n '/'$param'/=' $file)
+            sed -i $(($patchLine+2))'s/patch/wedge/' $file
+            shift;;
+        esac
+    shift
+    done
+}
