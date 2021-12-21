@@ -1,0 +1,4 @@
+solidThermo/solidThermos.C
+solidReactionThermo/solidReactionThermos.C
+
+LIB = $(FOAM_USER_LIBBIN)/libsolidFetc95Thermo
