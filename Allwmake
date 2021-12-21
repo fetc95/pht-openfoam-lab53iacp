@@ -1,7 +1,7 @@
 #!/bin/sh
 cd ${0%/*} || exit 1                        # Run from this directory
 #compiling libraries
-file=$WM_PROJECT_USER_DIR/src/thermophysicalModels
+file=$WM_PROJECT_PHT53_DIR/src/thermophysicalModels
 #wclean $file/specieFetc95
 #wclean $file/solidSpecieFetc95
 #wclean $file/solidFetc95Thermo
