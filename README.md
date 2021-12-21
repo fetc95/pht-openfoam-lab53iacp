@@ -15,7 +15,7 @@ In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers 
 The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2012 and tested for versions v1906, v1912, v2006, v2012. Please do the following steps to compile:
 
 1. Download ZIP this project from Github and move it to your $HOME/OpenFOAM Ubuntu directory. 
-2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-master" and run "mv pht-openfoam-lab53iacp-master OpenFOAM-PHT53IACP" in the prompt.
+2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-master.zip" and run "mv pht-openfoam-lab53iacp-master OpenFOAM-PHT53IACP" in the prompt.
 3. Run "echo 'source $HOME/OpenFOAM/OpenFOAM-PHT53IACP/etc/bashrc' >> ~/.bashrc" in the prompt.
 4. Run ". $HOME/.bashrc" in the prompt.
 5. Change directory to OpenFOAM-PHT53IACP and run ./Allwmake script.
