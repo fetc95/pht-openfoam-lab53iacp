@@ -8,7 +8,7 @@ EXE_INC = \
     -I$(LIB_SRC)/transportModels/compressible/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/solidThermo/lnInclude \
-    -I$(WM_PROJECT_PHT53_DIR)/src/thermophysicalModels/solidFetc95Thermo/lnInclude
+    -I$(WM_PROJECT_PHT53_DIR)/src/thermophysicalModels/solidPHT53Thermo/lnInclude
 
 /*\
     -I$(WM_PROJECT_USER_DIR)/src/interfacialModels/lnInclude \
@@ -28,6 +28,6 @@ EXE_LIBS = \
     -latmosphericModels \
     -lsolidThermo \
     -L$(FOAM_USER_LIBBIN) \
-    -lsolidFetc95Thermo
+    -lsolidPHT53Thermo
     /*-lcompressibleTwoPhaseSystem1 \
     -lcompressibleEulerianInterfacialModels1*/
