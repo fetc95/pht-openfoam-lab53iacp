@@ -16,7 +16,7 @@ The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2012 an
 
 1. Download ZIP this project from Github and move it to your $HOME/OpenFOAM Ubuntu directory. 
 
-2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-maser" and run "mv pht-openfoam-lab53iacp-maser OpenFOAM-PHT53IACP" in the prompt.
+2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-master" and run "mv pht-openfoam-lab53iacp-master OpenFOAM-PHT53IACP" in the prompt.
 
 3. Run "echo 'source $HOME/OpenFOAM/OpenFOAM-PHT53IACP/etc/bashrc' >> ~/.bashrc" in the prompt.
 
