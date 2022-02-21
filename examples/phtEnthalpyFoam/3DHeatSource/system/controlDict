@@ -1,0 +1,77 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     phtEnthalpyFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         #eval "3600*48";//144000;//108000;//36000;//
+
+deltaT          0.5;//5;//30;//0.1;
+
+writeControl    adjustableRunTime;//runTime;
+
+writeInterval   600;//3600;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  no;
+
+maxCo           200;
+
+functions 
+{
+fieldMinMax1
+{
+    // Mandatory entries (unmodifiable)
+    type        fieldMinMax;
+    libs        (fieldFunctionObjects);
+
+    // Mandatory entries (runtime modifiable)
+    mode        magnitude;
+    fields      (T.solid);
+
+    // Optional entries (runtime modifiable)
+    location    true;
+
+    // Optional (inherited) entries
+    writeControl    writeTime;
+}
+ 
+//    #includeFunc  CourantNo;
+//    #includeFunc  singleGraph
+//    #includeFunc  probes
+//    #includeFunc  fieldMinMax
+}
+
+// ************************************************************************* //

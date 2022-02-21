@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+energyRelease
+{
+    type            scalarSemiImplicitSource;
+
+    selectionMode   cellZone;
+	cellZone        heatSource;
+	
+	Q 1e5;
+
+	volumeMode      specific;
+
+    injectionRateSuSp
+    {
+        h.solid           (#eval "(1 - 0.3) * $Q" 0);
+    }
+}
+/*
+limitTemperature1
+{
+    // Mandatory entries (unmodifiable)
+    type            limitTemperature;
+	
+	selectionMode   all;
+
+    // Mandatory entries (runtime modifiable)
+    min             300;
+    max             10000;
+
+    // Optional entries (runtime modifiable)
+    phase           solid;
+
+    // Mandatory/Optional (inherited) entries
+}
+
+limitTemperature2
+{
+    // Mandatory entries (unmodifiable)
+    type            limitTemperature;
+	
+	selectionMode   all;
+
+    // Mandatory entries (runtime modifiable)
+    min             300;
+    max             10000;
+
+    // Optional entries (runtime modifiable)
+    phase           fluid;
+
+    // Mandatory/Optional (inherited) entries
+}
+*/
+// ************************************************************************* //
