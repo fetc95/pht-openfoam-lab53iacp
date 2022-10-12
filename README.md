@@ -8,14 +8,14 @@ In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers 
 
 **phtEnthalpyFoam** &mdash; fluid flow in porous media without phase changes and chemical reactions. This solver allows one to simulate flows through the "inert" porous materials like rocks, metallic balls, etc. as in sensible heat thermal energy storage or flow through the self-heating porous media.
 
-**porousHeatTransferFoam** &mdash; fluid flow in porous media. Optional modeling of phase transitions in the condenced phase like granular PCM. This solver allows one to model flows in packed bed thermal energy storages with phase changes.
+[//]: # (**porousHeatTransferFoam** &mdash; fluid flow in porous media. Optional modeling of phase transitions in the condenced phase like granular PCM. This solver allows one to model flows in packed bed thermal energy storages with phase changes.)
 
 # Description
 
 The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2012 and tested for versions v1906, v1912, v2006, v2012. Please do the following steps to compile:
 
 1. Download ZIP this project from Github and move it to your $HOME/OpenFOAM Ubuntu directory. 
-2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-master" and run "mv pht-openfoam-lab53iacp-master OpenFOAM-PHT53IACP" in the prompt.
+2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-master.zip" and run "mv pht-openfoam-lab53iacp-master OpenFOAM-PHT53IACP" in the prompt.
 3. Run "echo 'source $HOME/OpenFOAM/OpenFOAM-PHT53IACP/etc/bashrc' >> ~/.bashrc" in the prompt.
 4. Run ". $HOME/.bashrc" in the prompt.
 5. Change directory to OpenFOAM-PHT53IACP and run ./Allwmake script.
@@ -25,7 +25,7 @@ The project **PHT OpenFOAM Lab53 IACP FEB RAS** is released under [Creative Comm
 
 For solver **phtEnthalpyFoam**, cite work [1].
 
-For solver **porousHeatTransferFoam**, cite work [1].
+[//]: <> (For solver **porousHeatTransferFoam**, cite work [1].)
 
 # References
 
