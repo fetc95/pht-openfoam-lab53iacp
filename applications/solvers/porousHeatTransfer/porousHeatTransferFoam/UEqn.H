@@ -4,7 +4,7 @@
 
 tmp<fvVectorMatrix> tUEqn
 (
-    addedMassDivA2 * fvm::ddt(rho, U) 
+    addedMassDivA2 * a * fvm::ddt(rho, U) 
     + addedMassDivA2 * fvm::div(phi, U)
     + fvm::Sp(KD * thermo.mu() + rho * F * mag(U), U)
 //  + MRF.DDt(rho, U)
