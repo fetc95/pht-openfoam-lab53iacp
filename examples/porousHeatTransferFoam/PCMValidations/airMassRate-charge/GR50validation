@@ -1,0 +1,28 @@
+set term pdfcairo color size 16cm,6.5cm font 'Times-New-Roman,14'
+set out 'GR50validation.pdf'
+source="exp.lnk"#"/mnt/c/Users/fetc9/'Рабочий стол'/РАН/Теплоаккумуляторы/1dim_u_PCM/Верификация/experimentalData.dat"
+set multiplot
+set lmargin 2
+set rmargin 1
+set xlabel 'Time, h'
+set ylabel 'Temperature, K' offset graph 0.02,graph 0
+unset key
+array dd[4] = [5,1,2,4]
+array cc[4] = [3,1,6,7]
+array seta[4] = ["[2]","[3]","[4]","[5]"]
+set size 0.44,1
+set xtics 0.2
+set origin 0.06,0
+set xrange [0:1.2]
+plot for [i=1:4] source ind seta[i] u (column(1)/3600):(column(2)) w lp ps 0.6 dt 1 lc cc[i] lw 1 ti "{/Times-New-Roman-Italic ".i."}",\
+for [i=1:4] source ind "[7]" u (column(1)/3600):(column(i+1)) w l dt dd[i] lc cc[i] lw 3 ti "{/Times-New-Roman-Italic ".(i+4)."}"
+set origin 0.55,0
+unset ylabel
+set key r t rev Left vertical maxrows 4
+set xrange [3:4.5]
+set xtics 0.25
+replot
+unset multiplot
+set out
+
+#------------------------------------------------------------------------------

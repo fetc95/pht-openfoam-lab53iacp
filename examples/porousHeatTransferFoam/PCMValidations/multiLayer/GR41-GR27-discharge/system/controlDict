@@ -1,0 +1,122 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     porousHeatTransferFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         15000;//144000;//108000;//36000;//
+
+deltaT          1;//30;//0.1;//
+
+writeControl    adjustableRunTime;
+
+writeInterval   30;//3600;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   8;
+
+runTimeModifiable true;
+
+adjustTimeStep  no;
+
+maxCo           100;//450;
+
+functions 
+{ 
+//    #includeFunc  singleGraph
+//    #includeFunc  probes
+	/**/difference
+	{
+		type coded;
+		libs (utilityFunctionObjects);
+//		executeControl writeTime;
+
+		// Name of on-the-fly generated functionObject
+		name writeEnergyDynamics;
+
+		codeRead
+		#{
+		//        volScalarField("h.solid_0",mesh().lookupObject<volScalarField>("h.solid")).write();
+		        const volScalarField hs(mesh().lookupObject<volScalarField>("h.solid"));
+				const volScalarField rhoS(mesh().lookupObject<volScalarField>("thermo:rho.solid"));
+				volScalarField("energy_0",(1-.42)*rhoS*hs).write();
+				Info << "Total initial energy: " << fvc::domainIntegrate((1-.42)*rhoS*hs).value() << endl;
+		#};
+		
+		codeWrite
+		#{
+			if(mesh().time().writeTime())
+			{
+				// Exctract PCM enthalpy and HTF convection from the registry
+			    const volScalarField hs(mesh().lookupObject<volScalarField>("h.solid"));
+			    const volScalarField rhoS(mesh().lookupObject<volScalarField>("thermo:rho.solid"));
+                const surfaceScalarField phi(mesh().lookupObject<surfaceScalarField>("phi"));
+                const volScalarField hf(mesh().lookupObject<volScalarField>("h.fluid"));
+
+			// Write
+			    volScalarField("energy",(1-.42)*rhoS*hs).write();
+			    volScalarField("convect",fvc::div(phi,hf)).write();
+			}
+		#};
+	}
+	
+	/*write0Energy
+	{
+		type coded;
+		libs (utilityFunctionObjects);
+//		executeControl writeTime;
+
+		// Name of on-the-fly generated functionObject
+		name writeEnergy0;
+
+		codeRead
+		#{
+		        const volScalarField hs(mesh().lookupObject<volScalarField>("h.solid"));
+				const volScalarField rhoS(mesh().lookupObject<volScalarField>("thermo:rho.solid"));
+		//		volScalarField("energy_0",(1-.42)*rhoS*hs).write();
+				Info << "Total initial energy: " << fvc::domainIntegrate((1-.42)*rhoS*hs) << endl;
+		#};
+		
+		codeWrite
+		#{
+		    if(mesh().time().writeTime()){
+				volScalarField hs(mesh().lookupObject<volScalarField>("h.solid"));
+				hs.read();
+				const volScalarField rhoS(mesh().lookupObject<volScalarField>("thermo:rho.solid"));
+		//		volScalarField("energy_0",(1-.42)*rhoS*hs).write();
+				Info << "Total initial energy: " << fvc::domainIntegrate((1-.42)*rhoS*hs).value() << endl;
+		    }
+		#};
+
+	}*/
+}
+
+// ************************************************************************* //

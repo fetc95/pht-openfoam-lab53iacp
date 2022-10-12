@@ -1,0 +1,60 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      thermophysicalProperties.solid;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            hePhaseChangeSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;
+    thermo          hMeltingSolidificationCubic;//hNonsymErf;//
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+w #eval "pow(54.2e-3,3)/pow(55e-3,3)";
+
+mixture
+{
+    specie
+    {
+        molWeight   50;
+    }
+
+    transport
+    {
+        kappa  #eval "$w*.5*(.4+.15)+(1-$w)*.44";
+    }
+
+    equationOfState
+    {
+        rho     #eval "$w*.5*(861+778)+(1-$w)*940";
+    }
+
+    thermodynamics
+    {
+        CpS			#eval "($w*819.5*1850+(1-$w)*940*1900)/824.68";
+		CpL      	#eval "($w*819.5*2384+(1-$w)*940*1900)/824.68";
+		Tph		#eval "273+60";
+		T1	      #eval "273+59";
+		T2		#eval "273+61";
+        Hf			#eval "$w*819.5/824.68*(213e3-.5*($CpS+$CpL)*($T2-$T1))";
+    }
+}
+
+updateT no;
+
+// ************************************************************************* //

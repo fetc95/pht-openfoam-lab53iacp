@@ -1,0 +1,20 @@
+set term pdfcairo color size 15cm,8cm font 'Arial,14'
+set out 'validation.pdf'
+source1='experimentalData.dat'
+source2='postProcessing/probes/0/T.solid'
+#set lmargin 1
+#set rmargin 1
+set xlabel 'Time'
+set ylabel 'Temperature' offset graph 0.05,graph 0
+#set key rev l L
+unset key
+array dd[4] = [5,1,2,4]
+array cc[4] = [3,1,6,7]
+#set size 0.44,1
+#set xtics 0.2
+#set yrange [50:100]
+plot source1 ind 10 u (column(1)/3600):2 w lp pt 2 ps 2,\
+source2 u (column(1)/3600):2 w l lw 3
+set out
+
+#------------------------------------------------------------------------------

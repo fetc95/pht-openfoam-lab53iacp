@@ -1,0 +1,89 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+/*
+vectorSource
+{
+    type            vectorSemiImplicitSource;
+//    duration        0.0;
+    selectionMode   all;
+
+	volumeMode      specific;
+
+    injectionRateSuSp
+    {
+        U           ((0 0 0) -1);
+    }
+}
+*/
+/*
+energyRelease
+{
+    type            scalarSemiImplicitSource;
+
+    selectionMode   all;
+//	cellZone        heatSource;
+	
+	Q 1e5;	// (1-a)*(heatrelease)
+
+	volumeMode      specific;
+
+    injectionRateSuSp
+    {
+        h.solid           (#eval "(1 - 0.3) * $Q" 0);
+    }
+}
+
+codedSource
+{
+    type            scalarCodedSource;
+    selectionMode   all;
+
+    fields          (h.solid);
+    name            sourceTime;
+
+    codeAddSup
+    #{
+//        const Time& time = mesh().time();
+        const scalarField& V = mesh_.V();
+        scalarField& heSource = eqn.source();
+		const dimensionedScalar tempTc(mesh_.lookupDictionary("transportProperties").);
+		const scalar Q0 = 1e5;
+
+    //    {
+            // Apply the source
+            forAll(V, i)
+            {
+					heSource[i] -= Q0*V[i];
+			//		Pout << (heSource[i]) << endl;
+			//	heSource[i] = -7.0e4*V[i];
+            };
+    //    }
+//	Pout << (tempTc[23] >= TcInit) << endl;
+
+    #};
+	
+	codeCorrect
+    #{
+    #};
+	
+	codeConstrain
+    #{
+    #};
+}
+*/
+
+// ************************************************************************* //

@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            hePhaseChangeSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;
+    thermo          hMeltingSolidificationCubic;//hNonsymErf;//
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+#include "transportProperties"
+//w #eval "pow($dCap-2,3)/pow($dCap,3)";
+w 0.744;
+rhoPCM 2310;
+rhoSteel 7900;
+rhoS #eval "$w*$rhoPCM + (1.-$w)*$rhoSteel";//#eval "0.744*14.13*2310/20.57+7900*(20.57-14.13)/20.57";//
+
+mixture
+{
+    specie
+    {
+        molWeight   50;
+    }
+
+    transport
+    {
+        kappa   #eval "$w*1.65+(1.-$w)*18.9";
+    }
+
+    equationOfState
+    {
+        rho     2746.56;//$rhoS;//1434.45;//
+    }
+
+    thermodynamics
+    {
+        CpS			1042.55;//977.777;//1540;//
+		CpL      	1094.72;//1023.718;//1640;//
+		Tph		668.1;
+		T1	      653;
+		T2		670;
+        Hf			#eval "$w*$rhoPCM*0.8337/2746.56*(273e3 - 1068.635*($T2-$T1))";
+    }
+}
+
+updateT no;
+
+// ************************************************************************* //

@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     porousHeatTransferFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         #eval "3600*6";//144000;//108000;//36000;//
+
+deltaT          5;//30;//0.1;
+
+writeControl    adjustableRunTime;
+
+writeInterval   60;//3600;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  no;
+
+maxCo           450;
+
+functions 
+{ 
+//    #includeFunc  singleGraph
+    #includeFunc  probes
+/*	difference
+	{
+		type coded;
+		libs (utilityFunctionObjects);
+
+		// Name of on-the-fly generated functionObject
+		name writeHSolid;
+		codeWrite
+		#{
+			// Lookup h.solid
+			const volScalarField he(mesh().lookupObject<volScalarField>("h.solid"));
+
+			// Write
+			if (mesh().time().writeTime()) he.write();
+		#};
+	}*/
+}
+
+// ************************************************************************* //

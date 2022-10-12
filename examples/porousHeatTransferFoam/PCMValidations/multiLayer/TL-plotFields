@@ -1,0 +1,14 @@
+set term pdfcairo color size 16cm,6.5cm font "Times-New-Roman, 14"
+set out 'GR41-GR27-charge-T.solid.pdf'
+source="two-layer.dat"
+array seta[3]=["[GR41-GR27-charge, Time=3600s]","[GR41-GR27-charge, Time=5400s]","[GR41-GR27-charge, Time=6300s]"]#["[GR27-GR41-charge, Time=1800s]","[GR27-GR41-charge, Time=3000s]","[GR27-GR41-charge, Time=3960s]"]#
+array lwa[6] = [2,3,4,4,3,4]
+array lca[6] = [1,3,4,2,7,6]
+array dta[6] = [1,2,6,4,5,3]
+set key rev
+set xrange [:.2]
+set xlabel '{/Times-New-Roman-Italic x}, m' offset 0,0.8
+set ylabel 'Temperature, K' offset 0.9,0
+plot for [i=1:3] source ind seta[i] u (column("x")):(column("T.solid")) w l lw lwa[i] dt dta[i] lc lca[i] ti '{/Times-New-Roman-Italic '.i.'}',\
+for [i=1:3] source ind seta[i] u (column("x")):(column("T.fluid")) w l lw lwa[i+3] dt dta[i+3] lc lca[i+3] ti '{/Times-New-Roman-Italic '.(i+3).'}'
+set out

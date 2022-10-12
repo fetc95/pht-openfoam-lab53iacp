@@ -1,0 +1,26 @@
+set term pdfcairo color size 16cm,6.5cm font 'Times-New-Roman,14'
+set out 'graph.pdf'
+source="postProcessing/probes/0/T.solid"
+set multiplot
+set lmargin 2
+set rmargin 1
+set xlabel 'Time, h'
+set ylabel 'Temperature, K' offset graph 0.02,graph 0
+unset key
+array dd[4] = [5,1,2,4]
+array cc[4] = [3,1,6,7]
+set size 0.44,1
+set xtics 0.2
+set origin 0.06,0
+set xrange [0:1.2]
+plot for [i=1:4] source u (column(1)/3600):(column(i+1)) w l dt dd[i] lc cc[i] lw 3 ti "{/Times-New-Roman-Italic ".(i)."}"
+set origin 0.55,0
+unset ylabel
+set key r t rev Left vertical maxrows 4
+set xrange [3:4.5]
+set xtics 0.25
+replot
+unset multiplot
+set out
+
+#------------------------------------------------------------------------------
