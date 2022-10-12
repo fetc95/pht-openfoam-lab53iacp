@@ -30,4 +30,4 @@ For solver **phtEnthalpyFoam**, cite work [1].
 # References
 
 1. N. A. Lutsenko, S. S. Fetsov, K. G. Borovik, A. S. Kim. Gas flow and heat transfer in granular energy-releasing materials:
-Novel computational model and important features // Int J Heat Mass Transf. 2022. V. 199, Article 123464.
+Novel computational model and important features // Int J Heat Mass Transf. 2022. V. 199, Article 123464. https://doi.org/10.1016/j.ijheatmasstransfer.2022.123464
