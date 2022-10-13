@@ -46,7 +46,7 @@ mixture
     transport
     {
 		mu           0.6e-3; 
-        Pr           0.7;
+        Pr           4.5;
     }
 }
 
