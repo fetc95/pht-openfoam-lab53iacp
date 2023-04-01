@@ -14,7 +14,7 @@ In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers 
 
 The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2012 and tested for versions v1906, v1912, v2006, v2012. Please do the following steps to compile:
 
-1. Download ZIP this project from Github and move it to your $HOME/OpenFOAM Ubuntu directory. 
+1. Download ZIP this project from Github and, through the prompt, move it to your $HOME/OpenFOAM Ubuntu directory. 
 2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-master.zip" and run "mv pht-openfoam-lab53iacp-master OpenFOAM-PHT53IACP" in the prompt.
 3. Run "echo 'source $HOME/OpenFOAM/OpenFOAM-PHT53IACP/etc/bashrc' >> ~/.bashrc" in the prompt.
 4. Run ". $HOME/.bashrc" in the prompt.
@@ -25,9 +25,11 @@ The project **PHT OpenFOAM Lab53 IACP FEB RAS** is released under [Creative Comm
 
 For solver **phtEnthalpyFoam**, cite work [1].
 
-[//]: # (For solver **porousHeatTransferFoam**, cite work [2].)
+For solver **porousHeatTransferFoam**, cite work [2].
 
 # References
 
 1. N. A. Lutsenko, S. S. Fetsov, K. G. Borovik, A. S. Kim. Gas flow and heat transfer in granular energy-releasing materials:
 Novel computational model and important features // Int J Heat Mass Transf. 2022. V. 199, Article 123464. https://doi.org/10.1016/j.ijheatmasstransfer.2022.123464
+
+2. S. S. Fetsov, N. A. Lutsenko/ A novel computational model and OpenFOAM solver for simulating thermal energy storages based on granular phase change materials: Advantages and applicability // J Energy Storage. 2023. Article 107294. https://doi.org/10.1016/j.est.2023.107294
