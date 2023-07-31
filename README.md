@@ -32,4 +32,4 @@ For solver **porousHeatTransferFoam**, cite work [2].
 1. N. A. Lutsenko, S. S. Fetsov, K. G. Borovik, A. S. Kim. Gas flow and heat transfer in granular energy-releasing materials:
 Novel computational model and important features // Int J Heat Mass Transf. 2022. V. 199, Article 123464. https://doi.org/10.1016/j.ijheatmasstransfer.2022.123464
 
-2. S. S. Fetsov, N. A. Lutsenko/ A novel computational model and OpenFOAM solver for simulating thermal energy storages based on granular phase change materials: Advantages and applicability // J Energy Storage. 2023. V. 65. Article 107294. https://doi.org/10.1016/j.est.2023.107294
+2. S. S. Fetsov, N. A. Lutsenko. A novel computational model and OpenFOAM solver for simulating thermal energy storages based on granular phase change materials: Advantages and applicability // J Energy Storage. 2023. V. 65. Article 107294. https://doi.org/10.1016/j.est.2023.107294
