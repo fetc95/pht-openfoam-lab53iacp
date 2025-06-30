@@ -61,7 +61,7 @@ solvers
         relTol          0;
     }
 	
-	"(h.solid|e.solid).*"
+	"(T.solid).*"
     {
         solver          PCG;
         preconditioner  DIC;
@@ -69,7 +69,7 @@ solvers
         relTol          0;
     }
 	
-	/*"(h.solid|e.solid)Final"
+	/*"(T.solid)Final"
     {
         $"h.solid";
         relTol          0;
@@ -98,7 +98,7 @@ PIMPLE
                 tolerance  5e-4;
                 relTol      0;
         }
-		"h.*"
+		"(h.*|T.*)"
         {
                 tolerance  1e-5;
                 relTol      0;

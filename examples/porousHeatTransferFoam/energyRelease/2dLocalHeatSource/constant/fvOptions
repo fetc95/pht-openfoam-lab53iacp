@@ -43,7 +43,7 @@ energyRelease
 
     injectionRateSuSp
     {
-        h.solid           ($Q 0);
+        T.solid           ($Q 0);
     }
 }
 
