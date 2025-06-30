@@ -28,7 +28,7 @@ energyRelease
 
     injectionRateSuSp
     {
-        h.solid           (#eval "(1 - 0.3) * $Q" 0);
+        T.solid           (#eval "(1 - 0.3) * $Q" 0);
     }
 }
 /*

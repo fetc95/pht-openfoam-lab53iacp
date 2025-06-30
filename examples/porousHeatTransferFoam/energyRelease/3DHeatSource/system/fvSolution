@@ -55,7 +55,7 @@ solvers
         relTol          0;
     }
 	
-	"(h.solid|e.solid).*"
+	"(T.solid).*"
     {
         solver          PCG;
         preconditioner  DIC;
