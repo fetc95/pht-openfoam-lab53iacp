@@ -12,7 +12,7 @@ In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers 
 
 # Description
 
-The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2012 and tested for versions v1906, v1912, v2006, v2012. Please do the following steps to compile:
+The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) v2012 and tested for versions v1906, v1912, v2006, v2012, v2412. Please do the following steps to compile:
 
 1. Download ZIP this project from Github and, through the prompt, move it to your $HOME/OpenFOAM Ubuntu directory. 
 2. Unzip the archive by running "unzip pht-openfoam-lab53iacp-master.zip" and run "mv pht-openfoam-lab53iacp-master OpenFOAM-PHT53IACP" in the prompt.
