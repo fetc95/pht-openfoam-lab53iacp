@@ -32,16 +32,20 @@ License
 
 #include "specie.H"
 #include "rhoConst.H"
-#include "icoPolynomial.H"
-//#include "hConstThermo.H"
+//#include "icoPolynomial.H"
+//#include "icoTabulated.H"
+#include "hConstThermo.H"
 //#include "hPowerThermo.H"
-//#include "hPolynomialThermo.H"
+#include "hPolynomialThermo.H"
+#include "hTabulatedThermo.H"
 //#include "hNonsymErfThermo.H"
 #include "hMeltingSolidificationCubicThermo.H"
 #include "constIsoSolidTransport.H"
 #include "constAnIsoSolidTransport.H"
 //#include "exponentialSolidTransport.H"
-//#include "polynomialSolidTransport.H"
+#include "polynomialSolidTransport.H"
+#include "tabulatedSolidTransport.H"
+#include "tabulatedAnIsoSolidTransport.H"
 #include "pureMixture.H"
 #include "sensibleEnthalpy.H"
 #include "sensibleInternalEnergy.H"
@@ -58,18 +62,66 @@ namespace Foam
 
 /* * * * * * * * * * * * * * * * * Enthalpy-based * * * * * * * * * * * * * */
 
-/*makeSolidThermo
+makeSolidThermo
+(
+    solidThermo,
+    heSolidThermo,
+    pureMixture,
+    tabulatedSolidTransport,
+    sensibleEnthalpy,
+    hConstThermo,
+    rhoConst,
+    specie
+);
+
+makeSolidThermo
+(
+    solidThermo,
+    heSolidThermo,
+    pureMixture,
+    tabulatedSolidTransport,
+    sensibleEnthalpy,
+    hTabulatedThermo,
+    rhoConst,
+    specie
+);
+
+makeSolidThermo
 (
     solidThermo,
     heSolidThermo,
     pureMixture,
     constIsoSolidTransport,
     sensibleEnthalpy,
-    hNonsymErfThermo,
+    hTabulatedThermo,
     rhoConst,
     specie
-);*/
+);
+/*
+makeSolidThermo
+(
+    solidThermo,
+    heSolidThermo,
+    pureMixture,
+    tabulatedSolidTransport,
+    sensibleEnthalpy,
+    hPolynomialThermo,
+    rhoConst,
+    specie
+);
 
+makeSolidThermo
+(
+    solidThermo,
+    heSolidThermo,
+    pureMixture,
+    polynomialSolidTransport,
+    sensibleEnthalpy,
+    hPolynomialThermo,
+    rhoConst,
+    specie
+);
+*/
 makeSolidThermo
 (
     solidThermo,
