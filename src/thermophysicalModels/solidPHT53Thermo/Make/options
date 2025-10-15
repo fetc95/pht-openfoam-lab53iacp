@@ -7,6 +7,7 @@ EXE_INC = \
     -I$(LIB_SRC)/thermophysicalModels/reactionThermo/lnInclude \
     -I$(LIB_SRC)/transportModels/compressible/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/solidThermo/lnInclude \
+	-I$(LIB_SRC)/thermophysicalModels/thermophysicalProperties/lnInclude \
     -I$(WM_PROJECT_PHT53_DIR)/src/thermophysicalModels/speciePHT53/lnInclude \
     -I$(WM_PROJECT_PHT53_DIR)/src/thermophysicalModels/solidSpeciePHT53/lnInclude
 
@@ -18,4 +19,5 @@ LIB_LIBS = \
     -lfluidThermophysicalModels \
     -lreactionThermophysicalModels \
     -lcompressibleTransportModels \
-    -lsolidThermo
+    -lsolidThermo \
+	-lthermophysicalProperties
