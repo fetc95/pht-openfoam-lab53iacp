@@ -1,0 +1,3 @@
+psiReactionThermo/psiReactionThermos.C
+
+LIB = $(FOAM_USER_LIBBIN)/libreactionPHT53Thermo
