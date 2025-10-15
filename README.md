@@ -10,6 +10,8 @@ In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers 
 
 **porousHeatTransferFoam** &mdash; fluid flow in porous media. Optional modeling of phase transitions in the condenced phase like granular PCM. This solver allows one to model flows in packed bed thermal energy storages with phase changes.
 
+**phtMetalExtractionFOam** &mdash; a simplifed model of gas flow through a four-component solid porous phase: an inert, a combustible, a melting/evaporating component and an optional solid combustion product.
+
 # Description
 
 The solvers were developed on [OpenFOAM from OpenCFD](www.openfoam.com) and tested for version v2412. Please do the following steps to compile:
