@@ -4,13 +4,13 @@ OpenFOAM solvers for simulating heat transfer processes in porous media (porous 
 
 # Overview
 
-In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers and libraries to simulate the transient fluid flow and heat transfer in porous media. The solvers are developed in the Laboratory of Fluid Mechanics of [Institute of Automation and Control Processes FEB RAS](www.iacp.dvo.ru) and [Far Eastern Federal University](www.dvfu.ru).
+In project **PHT OpenFOAM Lab53 IACP FEB RAS**, we develop the OpenFOAM solvers and libraries to simulate the transient fluid flow and heat transfer in porous media. The solvers are developed in the Laboratory of Fluid Mechanics of [Institute of Automation and Control Processes FEB RAS](https://iacp.dvo.ru/) and (earlier) [Far Eastern Federal University](https://dvfu.ru/).
 
 **phtEnthalpyFoam** &mdash; fluid flow in porous media without phase changes and chemical reactions. This solver allows one to simulate flows through the "inert" porous materials like rocks, metallic balls, etc. as in sensible heat thermal energy storage or flow through the self-heating porous media.
 
 **porousHeatTransferFoam** &mdash; fluid flow in porous media. Optional modeling of phase transitions in the condenced phase like granular PCM. This solver allows one to model flows in packed bed thermal energy storages with phase changes.
 
-**phtMetalExtractionFOam** &mdash; gas flow through a four-component reacting solid porous phase consisting of an inert, a combustible, a melting/evaporating component and an optional solid combustion product.
+**phtMetalExtractionFoam** &mdash; gas flow through a four-component reacting solid porous phase consisting of an inert, a combustible, a melting/evaporating component and an optional solid combustion product.
 
 # Description
 
