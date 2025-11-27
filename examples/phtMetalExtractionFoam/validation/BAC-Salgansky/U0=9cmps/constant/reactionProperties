@@ -1,0 +1,33 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      reactionProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+heterogeneousCombustion
+{
+    coeffs (3.28e7 1e3 #eval "66.5e3 / 8.31441" #eval "8./3" 0);
+    oxidiser O2;
+    gasProduct CO2;
+}
+
+evaporationCondensation
+{
+//    coeffs (3014e3 2540);
+	coeffs (3014e3 2e4);
+	Aevp     1;
+    gasMetal Metal;
+}
+
+// ************************************************************************* //

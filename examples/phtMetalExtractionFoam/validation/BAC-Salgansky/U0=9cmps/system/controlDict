@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     phtMetalExtractionFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         #eval "3600*1";//144000;//108000;//36000;//
+
+deltaT          .000001;//30;//0.1;
+
+writeControl    adjustableRunTime;
+
+writeInterval   10;//3600;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  yes;
+
+maxCo           20;
+maxDeltaT       0.025;//.1;//
+
+functions 
+{ 
+//    #includeFunc  probes
+/*divPhi
+{
+    type            div;
+    libs            (fieldFunctionObjects);
+
+    field          phi;
+
+    executeControl  writeTime;
+    writeControl      writeTime;
+}*/
+    #includeFunc  probes
+}
+
+// ************************************************************************* //

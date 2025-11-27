@@ -1,0 +1,38 @@
+    thermoType
+    {
+        type            heSolidThermo;
+        mixture         pureMixture;
+        transport       constIso;
+        thermo          hTabulated;
+        equationOfState rhoConst;
+        specie          specie;
+        energy          sensibleEnthalpy;
+    }
+    
+    mixture
+    {
+        specie
+        {
+            molWeight       28;
+        }
+        thermodynamics
+        {
+            Hf              0;
+			Sf              0;
+			Cp
+			(
+			    (297       .69e3)
+                (833       1.21e3)
+                (900       1.21e3)
+			);
+        }
+        transport
+        {
+    		kappa     0.2;
+        }
+    	
+    	equationOfState
+        {
+            rho     400;
+        }
+    }

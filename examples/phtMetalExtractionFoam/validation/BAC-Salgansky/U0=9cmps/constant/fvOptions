@@ -1,0 +1,39 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+energyRelease
+{
+    type            scalarSemiImplicitSource;
+
+    selectionMode   all;
+//	cellZone        heatSource;
+	
+	h 32;//12;//
+	Tinf 300;
+	R 0.0125;
+
+	volumeMode      specific;
+
+    injectionRateSuSp
+    {
+        T.solid           (#eval "2*$h*$Tinf/$R" #eval "-2*$h/$R");
+    }
+}/**/
+
+
+// ************************************************************************* //

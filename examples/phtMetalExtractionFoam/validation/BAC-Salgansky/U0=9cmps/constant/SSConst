@@ -1,0 +1,37 @@
+thermoType
+{
+    type            heSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+// Synthetic sapphire
+
+mw 101.96e-3;
+
+mixture
+{
+    specie
+    {
+        molWeight       #eval "$mw*1e3";
+    }
+    thermodynamics
+    {
+        Hf              0;
+        Sf              0;
+        Cp              761;
+    }
+    transport
+    {
+		kappa           23.1;
+    }
+	
+	   equationOfState
+    {
+        rho     3980;
+    }
+}
