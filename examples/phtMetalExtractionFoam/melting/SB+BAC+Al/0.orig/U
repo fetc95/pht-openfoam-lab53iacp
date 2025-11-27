@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    floor
+    {
+//        type            fixedValue;
+//        value           uniform (0 0.2 0);//(0 0.2 0)
+//        type           zeroGradient;
+//	    type         fluxCorrectedVelocity;
+        type           codedFixedValue;
+	value          uniform (0 0 0);
+	name           filtrationVelocity;
+	code
+	#{
+		vector filtrationVelocity(0,0.2,0);
+		const volScalarField ra(scalar(1)/this->db().lookupObject<volScalarField>("Porosity"));
+		operator==(filtrationVelocity*ra.boundaryField()[ra.mesh().boundaryMesh().findPatchID("floor")]);
+	#};
+
+    }
+
+    ceiling
+    {
+	    type            zeroGradient;
+//	    type         fluxCorrectedVelocity;
+    }
+	
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+// ************************************************************************* //

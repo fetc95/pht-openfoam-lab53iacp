@@ -1,0 +1,38 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties.solid;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fuel
+{
+    #include "/mnt/c/Users/Common/OpenFOAM/cases/porousHeatTransfer/phtMetalExtractionFoam/melting/Data/BAC"
+}
+
+inert
+{
+    #include "/mnt/c/Users/Common/OpenFOAM/cases/porousHeatTransfer/phtMetalExtractionFoam/melting/Data/SS"
+}
+
+product
+{
+	$fuel
+}
+
+metal
+{
+    #include "/mnt/c/Users/Common/OpenFOAM/cases/porousHeatTransfer/phtMetalExtractionFoam/melting/Data/Cu"
+}
+
+// ************************************************************************* //

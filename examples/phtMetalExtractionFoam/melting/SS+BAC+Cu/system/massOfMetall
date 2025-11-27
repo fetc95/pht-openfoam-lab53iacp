@@ -1,0 +1,10 @@
+// Mandatory entries (unmodifiable)
+type            volFieldValue;
+libs            (fieldFunctionObjects);
+
+// Mandatory entries (runtime modifiable)
+fields          (metalRhoEff);
+operation       volIntegrate;
+regionType      all;
+writeFields     false;
+executeControl writeTime;

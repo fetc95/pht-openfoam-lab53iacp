@@ -1,0 +1,136 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties.fluid;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            hePsiThermo;
+    mixture         multiComponentMixture;//only multicomponentMixture is available
+    transport       sutherland;//const;//
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+pRef            100000;
+
+species (O2 CO2 Metal N2);
+
+inertSpecie N2;
+
+N2
+{
+    specie
+    {
+        molWeight       28.0134;//28.97;//29.932065425351664;//28.9;//
+    }
+    thermodynamics
+    {
+        Cp              1000;
+        Hf              0;
+    }
+    transport
+    {
+    //    mu              1.8460015e-5;//1.8e-05;
+    //    Pr              1000.0;//0.6;
+		As           1.458e-06; 
+        Ts           110.4;
+    }
+}
+
+O2
+{
+    specie
+    {
+        molWeight       32;//28.97;//29.932065425351664;//28.9;//
+    }
+    thermodynamics
+    {
+        Cp              1000;
+        Hf              0;
+    }
+    transport
+    {
+    //    mu              1.8460015e-5;//1.8e-05;
+    //    Pr              1000.0;//0.6;
+		As           1.458e-06; 
+        Ts           110.4;
+    }
+}
+
+CO2
+{
+    specie
+    {
+        molWeight       44.01;//28.97;//29.932065425351664;//28.9;//
+    }
+    thermodynamics
+    {
+        Cp              1000;
+        Hf              0;
+    }
+    transport
+    {
+    //    mu              1.8460015e-5;//1.8e-05;
+    //    Pr              1000.0;//0.6;
+		As           1.458e-06; 
+        Ts           110.4;
+    }
+}
+
+Metal
+{
+    specie
+    {
+        molWeight       26.98;
+    }
+    thermodynamics
+    {
+        Cp              1000;
+        Hf              0;
+    }
+    transport
+    {
+    //    mu              1.8460015e-5;//1.8e-05;
+    //    Pr              1000.0;//0.6;
+		As           1.458e-06; 
+        Ts           110.4;
+    }
+}
+
+mixture
+{
+    specie
+    {
+        molWeight       28.97;//29.932065425351664;//28.9;//
+    }
+    thermodynamics
+    {
+        Cp              1000;
+        Hf              0;
+    }
+    transport
+    {
+    //    mu              1.8460015e-5;//1.8e-05;
+    //    Pr              1000.0;//0.6;
+		As           1.458e-06; 
+        Ts           110.4;
+    }
+}
+
+
+// ************************************************************************* //

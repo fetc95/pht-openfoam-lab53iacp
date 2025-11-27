@@ -1,0 +1,152 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    "(rho.*)"
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       0;
+        relTol          0;
+    }
+
+    p
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-8;
+        relTol          0.01;
+    }
+
+    pFinal
+    {
+        $p;
+        relTol          0;
+    }
+
+    "(U|h.fluid)"
+    {
+        solver          PBiCGStab;//PCG;//
+        preconditioner  DILU;//DIC;//
+        tolerance       1e-10;
+        relTol          0.01;
+    }
+
+    "(U|h.fluid)Final"
+    {
+        $U;
+        relTol          0;
+    }
+
+    "(Yi.fluid)"
+    {
+        solver          PBiCGStab;//PCG;//
+        preconditioner  DILU;//DIC;//
+        tolerance       1e-15;
+        relTol          0.001;
+    }
+
+    "(Yi.fluid)Final"
+    {
+        $U;
+        tolerance       1e-18;
+        relTol          0;
+    }
+	
+	T.solid
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-12;
+        relTol          0;
+    }
+	
+	T.solidFinal
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-12;
+        relTol          0;
+    }
+}
+
+PIMPLE
+{
+    momentumPredictor no;
+    nOuterCorrectors 10;
+    nCorrectors     1;
+    nNonOrthogonalCorrectors 0;
+    pRefCell        0;
+    pRefValue       1e5;
+	SIMPLErho       yes;
+	
+	residualControl
+    {
+    /*    U
+        {
+                tolerance  1e-5;
+                relTol      0;
+        }*/
+        p
+        {
+                tolerance  1e-4;
+                relTol      0;
+        }
+		"(T.solid)"
+        {
+                tolerance  1e-5;
+                relTol      0;
+        }
+		/**/"h.fluid|Metal.fluid|YMetalFluid"
+		{
+			    tolerance  1e-4;
+                relTol      0;
+		}
+                /*"(YOxidizer)"
+                {
+                    tolerance  2e-5;
+                    relTol     0;
+                }*/
+     }
+}
+
+relaxationFactors
+{
+	/**/fields
+    {
+        p      0.9;
+        pFinal   1;
+    }
+	
+    equations
+    {
+		"(U|h.fluid|T.solid)Final"            1;
+		U            0.7;
+		h.fluid            0.6;
+                "(O2.fluid)"         0.5;//0.3;//
+		Metal.fluid		0.5;
+		CO2.fluid       0.6;
+       "(YOxidizer)"         0.5;//0.3;//
+		yMetalFluid		0.5;
+
+	//	Tsolid            0.7;
+    }
+}
+
+
+// ************************************************************************* //
