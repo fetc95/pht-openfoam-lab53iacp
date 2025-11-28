@@ -17,12 +17,17 @@ FoamFile
 
 heterogeneousCombustion
 {
-    #include "/mnt/c/Users/Common/OpenFOAM/cases/porousHeatTransfer/phtMetalExtractionFoam/melting/Data/BAC_combustion"
+    coeffs (3.28e7 1e3 #eval "66.5e3 / 8.31441" #eval "8./3" 0);
+    oxidiser O2;
+    gasProduct CO2;
 }
 
 evaporationCondensation
 {
-    #include "/mnt/c/Users/Common/OpenFOAM/cases/porousHeatTransfer/phtMetalExtractionFoam/melting/Data/Cu_evpcnd"
+coeffs (#eval "304.e3/63.546e-3" 2840);
+	Aevp     1;
+    gasMetal Metal;
+
 }
 
 // ************************************************************************* //

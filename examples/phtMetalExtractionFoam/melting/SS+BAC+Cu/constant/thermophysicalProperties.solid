@@ -17,12 +17,106 @@ FoamFile
 
 fuel
 {
-    #include "/mnt/c/Users/Common/OpenFOAM/cases/porousHeatTransfer/phtMetalExtractionFoam/melting/Data/BAC"
+    thermoType
+    {
+        type            heSolidThermo;
+        mixture         pureMixture;
+        transport       constIso;
+        thermo          hTabulated;
+        equationOfState rhoConst;
+        specie          specie;
+        energy          sensibleEnthalpy;
+    }
+    
+    mixture
+    {
+        specie
+        {
+            molWeight       28;
+        }
+        thermodynamics
+        {
+            Hf              0;
+			Sf              0;
+			Cp
+			(
+			    (297       .69e3)
+                (833       1.21e3)
+                (300000    1.21e3)
+			);
+        }
+        transport
+        {
+    		kappa     0.2;
+        }
+    	
+    	equationOfState
+        {
+            rho     400;
+        }
+    }
 }
 
 inert
 {
-    #include "/mnt/c/Users/Common/OpenFOAM/cases/porousHeatTransfer/phtMetalExtractionFoam/melting/Data/SS"
+thermoType
+{
+    type            heSolidThermo;
+    mixture         pureMixture;
+    transport       tabulated;//constIso;//
+    thermo          hTabulated;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+// Synthetic sapphire
+
+mw 101.96e-3;
+
+mixture
+{
+    specie
+    {
+        molWeight       #eval "$mw*1e3";
+    }
+    thermodynamics
+    {
+        Hf              0;
+        Sf              0;
+        Cp
+        (
+            (250       #eval "67.4/$mw")
+            (400       #eval "96.19/$mw")
+            (600       #eval "112.85/$mw")
+        	(1000      #eval "124.53/$mw")
+        	(1500      #eval "132.42/$mw")
+        	(3000      #eval "132.42/$mw")
+        //    (200   761)
+        //	(3000   761)
+        );
+    }
+    transport
+    {
+		kappa// 23.1;
+        (
+            (200       30)
+            (400       30)
+            (700       13)
+            (1100      7)
+            (1500      5)
+            (2000      7)
+            (3000      7)
+        //      (200    23.1)
+        //      (400    23.1)
+        );
+    }
+	
+	   equationOfState
+    {
+        rho     3980;
+    }
+}
 }
 
 product
@@ -32,7 +126,64 @@ product
 
 metal
 {
-    #include "/mnt/c/Users/Common/OpenFOAM/cases/porousHeatTransfer/phtMetalExtractionFoam/melting/Data/Cu"
+thermoType
+    {
+        type            heSolidThermo;
+        mixture         pureMixture;
+        transport       tabulated;
+        thermo          hTabulated;
+        equationOfState rhoConst;
+        specie          specie;
+        energy          sensibleEnthalpy;
+    }
+    
+    mixture
+    {
+        specie
+        {
+            molWeight       63.546;
+        }
+        thermodynamics
+        {
+			Sf     0;
+            Hf     #eval "13.02e3/63.546e-3";
+    	    Tf     1357;//2e4;//
+			Cp
+			(
+                (300        385)
+                (400        397.7)
+                (600        416.9)
+                (800        432.9)
+                (900        441.7)
+                (1000       451.4)
+                (1100       464.3)
+                (1300       506.5)
+                (1356.5     525.2)
+                (1357.5     513.9)
+                (3000       513.9)
+
+			);
+        }
+        transport
+        {
+    		kappa
+			(
+                (300       401.9)
+                (800       360.8)
+                (1000      349.2)
+                (1100      337.6)
+                (1200      327.5)
+                (1300      322.1)
+                (1356.5    317)
+                (1357.5    175)
+                (3000      184)
+			);
+        }
+    	equationOfState
+        {
+            rho     8920;
+        }
+    }
 }
 
 // ************************************************************************* //
