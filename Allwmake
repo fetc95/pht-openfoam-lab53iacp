@@ -5,6 +5,7 @@ file=$WM_PROJECT_PHT53_DIR/src/thermophysicalModels
 wmake $file/speciePHT53
 wmake $file/solidSpeciePHT53
 wmake $file/solidPHT53Thermo
+wmake $file/reactionPHT53Thermo
 #compiling solvers
 file=$FOAM_PHT53_SOLVERS/porousHeatTransfer
 wmake $file/phtEnthalpyFoam
